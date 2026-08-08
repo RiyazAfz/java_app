@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: imriyaz17/general:replaceImageTag
+        image: imriyaz17/general:11
         ports:
         - containerPort: 8181
