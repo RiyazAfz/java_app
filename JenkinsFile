@@ -54,7 +54,8 @@ pipeline {
           sh '''
             git config user.email "imriyaz17@gmail.com"
             git config user.name "Riyaz"
-            sed -i -E 's|(image: imriyaz17/general:)[^[:space:]]+|\\1${BUILD_NUMBER}|' \
+            echo "Build number: ${env.BUILD_NUMBER}"
+            sed -i -E "s|(image: imriyaz17/general:)[^[:space:]]+|\\\\1${env.BUILD_NUMBER}|" \
             spring-boot-app-manifests/deployment.yml
 #            sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-app-manifests/deployment.yml
             git add spring-boot-app-manifests/deployment.yml
